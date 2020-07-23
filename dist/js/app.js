@@ -16,8 +16,10 @@ app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(body_parser_1.default.json());
 app.use(cors_1.default());
 app.use(routes_1.default);
-//const uri = "mongodb+srv://Chasty:<password>@cluster0.zchzm.mongodb.net/<dbname>?retryWrites=true&w=majority";
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.zchzm.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
+const MONGO_USER = process.env.MONGO_USER || "Chasty";
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD || "Chascos0";
+const MONGO_DB = process.env.MONGO_DB || "mibd";
+const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.zchzm.mongodb.net/${MONGO_DB}?retryWrites=true&w=majority`;
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 mongoose_1.default.set("useFindAndModify", false);
 mongoose_1.default
