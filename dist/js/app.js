@@ -8,8 +8,13 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const cors_1 = __importDefault(require("cors"));
 const routes_1 = __importDefault(require("./routes"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const path_1 = __importDefault(require("path"));
 const app = express_1.default();
 const PORT = process.env.PORT || 4300;
+/*app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
+});*/
+app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
